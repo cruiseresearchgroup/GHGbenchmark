@@ -1,0 +1,16 @@
+[1/4] Loading quickstart_data/building_quickstart.csv ...
+      471,070 rows, 98,038 buildings, 26 cities
+[2/4] Loading precomputed split (seed=42) ...
+      train=329,256  val=46,932  test=94,875
+[3/4] Fitting TabPFN v2 on 10,000 rows (features: ['gross_floor_area_sqft', 'latitude', 'longitude', 'year', 'hdd', 'cdd']) ...
+      device=cuda
+[4/4] Predicting on 94,875 test rows ...
+
+========================================================
+  TabPFN v2 | core_all_cities (+climate) | seed=42
+========================================================
+  R^2     = 0.4508    (paper 3-seed mean: 0.479 +/- 0.024)
+  MAE     = 377.7
+  n_test  = 94,875
+  runtime = 138s on cuda
+========================================================

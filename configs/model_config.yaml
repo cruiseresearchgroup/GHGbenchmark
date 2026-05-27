@@ -1,0 +1,155 @@
+# GHGbench Model Configuration
+# Hyperparameters for all baseline models.
+
+# ============================================================
+# Naive Baselines
+# ============================================================
+historical_mean:
+  log_space: true
+
+last_year:
+  lag1_col_index: 0
+  log_space: true
+
+moving_average:
+  window: 3
+  log_space: true
+
+# ============================================================
+# Linear Models
+# ============================================================
+linear:
+  fit_intercept: true
+  normalize_features: true
+  log_target: true
+
+ridge:
+  alpha: 1.0
+  fit_intercept: true
+  normalize_features: true
+  log_target: true
+
+lasso:
+  alpha: 0.1
+  max_iter: 2000
+  fit_intercept: true
+  normalize_features: true
+  log_target: true
+
+# ============================================================
+# Tree-Based Models
+# ============================================================
+random_forest:
+  n_estimators: 200
+  max_depth: 10
+  min_samples_leaf: 5
+  n_jobs: -1
+  random_state: 42
+  log_target: true
+
+xgboost:
+  n_estimators: 300
+  max_depth: 6
+  learning_rate: 0.05
+  subsample: 0.8
+  colsample_bytree: 0.8
+  min_child_weight: 5
+  reg_alpha: 0.1
+  reg_lambda: 1.0
+  random_state: 42
+  n_jobs: -1
+  log_target: true
+  early_stopping_rounds: 20
+
+lightgbm:
+  n_estimators: 300
+  max_depth: 6
+  learning_rate: 0.05
+  num_leaves: 63
+  subsample: 0.8
+  colsample_bytree: 0.8
+  min_child_samples: 10
+  reg_alpha: 0.1
+  reg_lambda: 1.0
+  random_state: 42
+  n_jobs: -1
+  verbose: -1
+  log_target: true
+  early_stopping_rounds: 20
+
+# ============================================================
+# Deep Learning Models (require PyTorch)
+# ============================================================
+lstm:
+  hidden_size: 64
+  num_layers: 2
+  dropout: 0.1
+  horizon: 1
+  batch_size: 64
+  lr: 0.001
+  epochs: 100
+  patience: 10
+  log_target: true
+
+# Multi-step LSTM (for T2)
+lstm_t2:
+  hidden_size: 64
+  num_layers: 2
+  dropout: 0.1
+  horizon: 3
+  batch_size: 64
+  lr: 0.001
+  epochs: 100
+  patience: 10
+  log_target: true
+
+tft:
+  hidden_size: 64
+  n_heads: 4
+  num_lstm_layers: 2
+  dropout: 0.1
+  horizon: 1
+  batch_size: 64
+  lr: 0.001
+  epochs: 100
+  patience: 10
+  log_target: true
+
+patchtst:
+  d_model: 128
+  n_heads: 8
+  n_layers: 3
+  patch_len: 2
+  stride: 1
+  dropout: 0.1
+  horizon: 1
+  batch_size: 32
+  lr: 0.0001
+  epochs: 50
+  patience: 10
+  log_target: true
+
+# ============================================================
+# T3 (Sector-Classification-Assisted) Pipeline Settings
+# ============================================================
+t3_classifier_regressor:
+  classifier:
+    n_estimators: 100
+    max_depth: 8
+    random_state: 42
+    n_jobs: -1
+  regressor:
+    n_estimators: 100
+    max_depth: 8
+    random_state: 42
+    n_jobs: -1
+
+# ============================================================
+# Evaluation Settings
+# ============================================================
+evaluation:
+  primary_metric: "rmse"
+  metrics: ["mae", "rmse", "mape", "r2", "nrmse", "log_mae"]
+  log_transform_for_metrics: false  # Evaluate in original tCO2e space
+  clip_negative_predictions: true
+  random_seed: 42

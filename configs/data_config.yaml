@@ -1,0 +1,102 @@
+# GHGbench Data Configuration
+# Paths are relative to the project root directory.
+
+# The public anonymous release focuses on the current T1/T2 benchmark assets.
+# Additional sources such as EPA GHGRP and EU ETS were explored during early
+# development but are not part of the present public benchmark release.
+#
+# If you reuse this config file for internal experiments, you may re-enable
+# those blocks from the main working repository.
+
+# deferred_to_internal_release:
+# epa_ghgrp:
+#   url: "https://www.epa.gov/ghgreporting/data-sets"
+#   api_url: "https://enviro.epa.gov/efservice/V_GHG_EMITTER_FACILITIES"
+#   raw_path: "data/raw/epa_ghgrp/"
+#   processed_path: "data/processed/epa_ghgrp.parquet"
+#   train_years: [2010, 2019]
+#   val_year: 2020
+#   test_years: [2021, 2022]
+#   min_years_required: 3
+#   entity_col: "facility_id"
+#   target_col: "total_reported_direct_emissions_mmtco2e"
+#   sector_col: "primary_naics_code"
+#   region_col: "state"
+#   convert_to_tco2e: true  # multiply mmtCO2e by 1e6
+#
+# eu_ets:
+#   url: "https://www.eea.europa.eu/data-and-maps/data/european-union-emissions-trading-scheme-16"
+#   eutl_url: "https://euets.info/static/download/EUTL_public_data.zip"
+#   raw_path: "data/raw/eu_ets/"
+#   processed_path: "data/processed/eu_ets.parquet"
+#   train_years: [2005, 2019]
+#   val_year: 2020
+#   test_years: [2021, 2022]
+#   min_years_required: 5
+#   entity_col: "account_id"
+#   target_col: "verified_emissions"
+#   sector_col: "activity"
+#   region_col: "country_code"
+
+nyc_buildings:
+  url: "https://data.cityofnewyork.us/resource/pxex-83vi.csv"
+  raw_path: "data/raw/nyc_buildings/"
+  processed_path: "data/processed/nyc_buildings.parquet"
+  train_years: [2013, 2020]
+  val_year: 2021
+  test_years: [2022, 2023]
+  min_years_required: 3
+  entity_col: "bbl"
+  target_col: "total_ghg_emissions_metric_tons_co2e"
+  sector_col: "property_type"
+  size_col: "gross_floor_area_sqft"
+  normalize_by_area: true
+
+synthetic:
+  raw_path: "data/raw/synthetic/"
+  processed_path: "data/processed/"
+  epa_like:
+    filename: "epa_synthetic.csv"
+    processed_filename: "epa_synthetic.parquet"
+    n_facilities: 5000
+    start_year: 2010
+    end_year: 2022
+    train_end: 2019
+    val_year: 2020
+    test_start: 2021
+    test_end: 2022
+  nyc_like:
+    filename: "nyc_synthetic.csv"
+    processed_filename: "nyc_synthetic.parquet"
+    n_buildings: 3000
+    start_year: 2013
+    end_year: 2022
+    train_end: 2019
+    val_year: 2020
+    test_start: 2021
+    test_end: 2022
+  company_like:
+    filename: "company_synthetic.csv"
+    processed_filename: "company_synthetic.parquet"
+    n_companies: 2000
+    start_year: 2011
+    end_year: 2022
+    train_end: 2019
+    val_year: 2020
+    test_start: 2021
+    test_end: 2022
+
+# Feature engineering settings
+features:
+  n_lags: 3          # Number of lag years as features
+  log_transform: true  # Log1p transform emissions in features
+  include_year: true
+  include_sector: true
+  include_size: true
+  include_region: true
+
+# Splits
+splits:
+  output_dir: "data/splits/"
+  save_splits: true
+  random_seed: 42

@@ -1,0 +1,22 @@
+# data and large artifacts
+data/
+*.parquet
+*.npy
+*.npz
+
+# quickstart_data is hosted separately, not in this code repository
+quickstart_kit/quickstart_data/
+
+# results and logs
+results/
+logs/
+*.log
+
+# caches / local files
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

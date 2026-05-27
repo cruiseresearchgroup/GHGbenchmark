@@ -1,0 +1,122 @@
+{
+  "_description": "Maps raw property type strings from each city to unified categories. Case-insensitive matching.",
+  "_categories": [
+    "Office", "Multifamily Housing", "Retail", "Hotel",
+    "K-12 School", "College/University", "Hospital/Medical",
+    "Warehouse/Distribution", "Industrial", "Worship",
+    "Senior Living", "Supermarket/Grocery", "Restaurant",
+    "Parking", "Laboratory", "Fitness Center", "Library",
+    "Residence Hall", "Mixed Use", "Self-Storage",
+    "Commercial (Mixed)", "Other"
+  ],
+  "mapping": {
+    "Office": "Office",
+    "Medical Office": "Hospital/Medical",
+    "Bank Branch": "Office",
+
+    "Multifamily Housing": "Multifamily Housing",
+    "Multifamily": "Multifamily Housing",
+    "Residential": "Multifamily Housing",
+    "Mixed Residential": "Multifamily Housing",
+    "Other - Lodging/Residential": "Multifamily Housing",
+    "APT 31-99 UNITS": "Multifamily Housing",
+    "APT 100+ UNITS": "Multifamily Housing",
+    "RES/COMMERCIAL USE": "Mixed Use",
+    "CONDO MAIN": "Multifamily Housing",
+
+    "Retail Store": "Retail",
+    "Enclosed Mall": "Retail",
+    "Strip Mall": "Retail",
+    "Commercial": "Commercial (Mixed)",
+    "Commercial - Port Facility": "Commercial (Mixed)",
+    "Lifestyle Center": "Retail",
+
+    "Hotel": "Hotel",
+    "Other - Lodging/Residential": "Hotel",
+
+    "K-12 School": "K-12 School",
+    "Pre-school/Daycare": "K-12 School",
+
+    "College/University": "College/University",
+
+    "Hospital (General Medical & Surgical)": "Hospital/Medical",
+    "Urgent Care/Clinic/Other Outpatient": "Hospital/Medical",
+    "Outpatient Rehabilitation/Physical Therapy": "Hospital/Medical",
+    "Ambulatory Surgical Center": "Hospital/Medical",
+    "Other - Specialty Hospital": "Hospital/Medical",
+
+    "Non-Refrigerated Warehouse": "Warehouse/Distribution",
+    "Refrigerated Warehouse": "Warehouse/Distribution",
+    "Distribution Center": "Warehouse/Distribution",
+    "WAREHOUSE": "Warehouse/Distribution",
+
+    "Manufacturing/Industrial Plant": "Industrial",
+    "Data Center": "Industrial",
+
+    "Worship Facility": "Worship",
+
+    "Senior Living Community": "Senior Living",
+    "Senior Care Community": "Senior Living",
+
+    "Supermarket/Grocery Store": "Supermarket/Grocery",
+    "Convenience Store with Gas Station": "Supermarket/Grocery",
+    "Convenience Store without Gas Station": "Supermarket/Grocery",
+    "Food Sales": "Supermarket/Grocery",
+    "Wholesale Club/Supercenter": "Supermarket/Grocery",
+
+    "Restaurant": "Restaurant",
+    "Fast Food Restaurant": "Restaurant",
+    "Food Service": "Restaurant",
+
+    "Parking": "Parking",
+
+    "Laboratory": "Laboratory",
+
+    "Fitness Center/Health Club/Gym": "Fitness Center",
+
+    "Library": "Library",
+
+    "Residence Hall/Dormitory": "Residence Hall",
+
+    "Mixed Use Property": "Mixed Use",
+
+    "Self-Storage Facility": "Self-Storage",
+
+    "Other": "Other",
+    "Other - Recreation": "Other",
+    "Other - Entertainment/Public Assembly": "Other",
+    "Other - Education": "Other",
+    "Other - Public Services": "Other",
+    "Other - Services": "Other",
+    "Other - Technology/Science": "Other",
+    "Other - Utility": "Other",
+    "Zoo": "Other",
+    "Museum": "Other",
+    "Aquarium": "Other",
+    "Performing Arts": "Other",
+    "Convention Center": "Other",
+    "Movie Theater": "Other",
+    "Bowling Alley": "Other",
+    "Ice/Curling Rink": "Other",
+    "Roller Rink": "Other",
+    "Swimming Pool": "Other",
+    "Social/Meeting Hall": "Other",
+    "Fire Station": "Other",
+    "Police Station": "Other",
+    "Prison/Incarceration": "Other",
+    "Courthouse": "Other",
+    "Mailing Center/Post Office": "Other",
+    "Transportation Terminal/Station": "Other",
+    "Automobile Dealership": "Other",
+    "Personal Services (Health/Beauty, Dry Cleaning, etc)": "Other",
+    "Repair Services (Vehicle, Shoe, Locksmith, etc)": "Other",
+    "Veterinary Office": "Other",
+    "Adult Education": "Other",
+    "Vocational School/Adult Education": "Other",
+    "Bar/Nightclub": "Other",
+    "OTHER EXEMPT BLDG": "Other",
+    "OFFICE BUILDING": "Office",
+    "OFFICE 3-9 STORY": "Office",
+    "OFFICE 10+ STORY": "Office"
+  }
+}
